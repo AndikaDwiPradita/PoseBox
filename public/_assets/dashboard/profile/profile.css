@@ -1,0 +1,267 @@
+/* ============================================================
+   PROFILE PAGE
+============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0d0d1a;
+  color: #e8e8e8;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background: #16162e;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8e8e8;
+  text-decoration: none;
+}
+.brand span {
+  color: #6c5ce7;
+}
+
+.back-btn {
+  color: #9090aa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+.back-btn:hover {
+  color: #e8e8e8;
+}
+
+/* Main Container */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+.profile-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.profile-header p {
+  color: #9090aa;
+  font-size: 0.95rem;
+}
+
+/* Avatar Section */
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #6c5ce7;
+  background: #1a1a32;
+}
+
+.avatar-upload-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-upload-btn:hover {
+  background: #7d6ff0;
+  transform: scale(1.05);
+}
+
+.avatar-hint {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #606080;
+}
+
+/* Form */
+.profile-form {
+  background: #16162e;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #2a2a4a;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #9090aa;
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 14px;
+  background: #0d0d1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s;
+}
+.form-group input:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.form-group small {
+  display: block;
+  color: #606080;
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+.btn-save {
+  width: 100%;
+  padding: 12px;
+  background: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-save:hover {
+  background: #7d6ff0;
+  transform: translateY(-1px);
+}
+.btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-delete {
+  width: 100%;
+  padding: 12px;
+  background: #e17055;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.btn-delete:hover {
+  background: #d63031;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  display: none;
+}
+.message.success {
+  display: block;
+  background: rgba(0, 184, 148, 0.15);
+  color: #00b894;
+  border: 1px solid #00b894;
+}
+.message.error {
+  display: block;
+  background: rgba(225, 112, 85, 0.15);
+  color: #e17055;
+  border: 1px solid #e17055;
+}
+
+/* Logout */
+.logout-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn-logout {
+  background: none;
+  border: 1px solid #e17055;
+  color: #e17055;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-logout:hover {
+  background: #e17055;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .brand {
+    font-size: 1.2rem;
+  }
+  .profile-form {
+    padding: 1rem;
+  }
+}

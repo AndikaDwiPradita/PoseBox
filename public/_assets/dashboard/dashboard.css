@@ -1,0 +1,678 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+}
+
+/* ========================================
+   NAVBAR POSEBOX
+======================================== */
+.nav {
+    position: sticky;
+    top: 0;
+    padding: clamp(0.5rem, 1vw + 0.2rem, 1rem) clamp(1rem, 2vw + 0.5rem, 3rem);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    transition: background 0.3s ease;
+}
+
+/* Tema Pink (default) */
+body.tema-pink .nav {
+    background: linear-gradient(180deg, #ffb3c6, #ff9eb5);
+}
+
+/* Tema Cream Maroon */
+body.tema-creammaroon .nav {
+    background: #800020;
+}
+
+.nav-inner {
+    max-width: 1600px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== KIRI: Hamburger + Brand ===== */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ========================================
+   HAMBURGER BUTTON - DESAIN BAGUS
+======================================== */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  position: relative;
+}
+
+.hamburger-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.hamburger-btn:active {
+  transform: scale(0.92);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animasi saat sidebar terbuka (opsional) */
+.sidebar.open .hamburger-btn span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.sidebar.open .hamburger-btn span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.sidebar.open .hamburger-btn span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+/* ===== AVATAR ===== */
+.user-avatar-link {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.user-avatar-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.4);
+}
+
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #6c5ce7;
+  background: #16162e;
+}
+
+/* ===== AUTH BUTTONS ===== */
+#authSection {
+  display: flex;
+  gap: 8px;
+}
+
+#userSection {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .hamburger-btn {
+    width: 36px;
+    height: 36px;
+    gap: 4px;
+    border-radius: 10px;
+  }
+  .hamburger-btn span {
+    width: 18px;
+    height: 2px;
+  }
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 700;
+}
+
+/* ===== KANAN: Login/User Info ===== */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#authSection {
+    display: flex;
+    gap: 8px;
+}
+
+#userSection {
+    display: none;
+}
+
+/* Nav Buttons */
+.nav-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.9rem;
+}
+
+/* Tema Pink - tombol */
+body.tema-pink .login-btn {
+    background: white;
+    color: #b34180;
+}
+body.tema-pink .login-btn:hover {
+    background: #ffe0f0;
+}
+body.tema-pink .register-btn {
+    background: #ff99cc;
+    color: white;
+}
+body.tema-pink .register-btn:hover {
+    background: #ff80b5;
+}
+body.tema-pink .logout-btn {
+    background: #800020;
+    color: white;
+}
+
+/* Tema Cream Maroon - tombol */
+body.tema-creammaroon .login-btn {
+    background: #FFF8E7;
+    color: #800020;
+}
+body.tema-creammaroon .login-btn:hover {
+    background: #ffe6d5;
+}
+body.tema-creammaroon .register-btn {
+    background: #a02840;
+    color: #FFF8E7;
+}
+body.tema-creammaroon .register-btn:hover {
+    background: #b83850;
+}
+body.tema-creammaroon .logout-btn {
+    background: #FFF8E7;
+    color: #800020;
+}
+body.tema-creammaroon .logout-btn:hover {
+    background: #ffe6d5;
+}
+
+/* User Info */
+.user-info-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 40px;
+}
+
+body.tema-creammaroon .user-info-nav {
+    background: rgba(255, 248, 231, 0.25);
+}
+
+.nav-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.user-role-badge {
+    font-size: 0.7rem;
+    background: #ff99cc;
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: white;
+}
+
+body.tema-creammaroon .user-role-badge {
+    background: #a02840;
+    color: #FFF8E7;
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 999;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Sidebar User Info */
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-user img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff99cc;
+}
+
+.sidebar-user p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.role-badge {
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background: #eee;
+    color: #666;
+}
+
+.role-badge.premium {
+    background: #ff99cc;
+    color: white;
+}
+
+.role-badge.profesional {
+    background: #800020;
+    color: white;
+}
+
+/* Sidebar Nav Links */
+.sidebar-nav {
+    padding: 8px 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.sidebar-link i {
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.sidebar-link:hover {
+    background: rgba(255, 153, 204, 0.15);
+}
+
+.sidebar-link.active {
+    background: rgba(255, 153, 204, 0.2);
+    font-weight: 600;
+}
+
+.logout-link {
+    color: #e74c3c;
+    border-top: 1px solid #eee;
+    margin-top: 8px;
+}
+
+/* ===== DASHBOARD CONTENT ===== */
+.dashboard-content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== PROFIL CARD ===== */
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-card .avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff99cc;
+}
+
+.profile-card .info h2 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #333;
+}
+
+.profile-card .info p {
+  margin: 4px 0 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.profile-card .info .badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.badge-free { background: #e8e8e8; color: #666; }
+.badge-premium { background: #ff99cc; color: white; }
+.badge-profesional { background: #800020; color: white; }
+
+/* ===== STATISTIK ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.stat-card .number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b34180;
+}
+
+.stat-card .label {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+body.tema-creammaroon .stat-card .number {
+  color: #800020;
+}
+
+/* ===== TOMBOL AKSI ===== */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  background: white;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.action-btn.primary {
+  background: #ff99cc;
+  color: white;
+}
+
+body.tema-creammaroon .action-btn.primary {
+  background: #800020;
+  color: white;
+}
+
+/* ===== AKTIVITAS ===== */
+.activity-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.activity-section h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item .icon {
+  font-size: 1.2rem;
+}
+
+.activity-item .text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.activity-item .time {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .stat-card .number {
+    font-size: 1.4rem;
+  }
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   TEMA PINK (DEFAULT)
+======================================== */
+body.tema-pink .sidebar {
+    background: #fff5f7;
+}
+body.tema-pink .sidebar-header {
+    background: #ffb3c6;
+    color: white;
+}
+body.tema-pink .sidebar-header h2 {
+    color: white;
+}
+body.tema-pink .sidebar-header .close-sidebar {
+    color: white;
+}
+body.tema-pink .sidebar-link:hover {
+    background: rgba(255, 153, 204, 0.2);
+}
+body.tema-pink .sidebar-link.active {
+    background: rgba(255, 153, 204, 0.25);
+}
+body.tema-pink .role-badge.premium {
+    background: #ff99cc;
+    color: white;
+}
+body.tema-pink .role-badge.profesional {
+    background: #800020;
+    color: white;
+}
+
+/* ========================================
+   TEMA CREAM MAROON
+======================================== */
+body.tema-creammaroon .sidebar {
+    background: #fff8f0;
+}
+body.tema-creammaroon .sidebar-header {
+    background: #800020;
+    color: #FFF8E7;
+}
+body.tema-creammaroon .sidebar-header h2 {
+    color: #FFF8E7;
+}
+body.tema-creammaroon .sidebar-header .close-sidebar {
+    color: #FFF8E7;
+}
+body.tema-creammaroon .sidebar-link {
+    color: #4a2c1a;
+}
+body.tema-creammaroon .sidebar-link:hover {
+    background: rgba(128, 0, 32, 0.1);
+}
+body.tema-creammaroon .sidebar-link.active {
+    background: rgba(128, 0, 32, 0.15);
+}
+body.tema-creammaroon .role-badge.premium {
+    background: #800020;
+    color: #FFF8E7;
+}
+body.tema-creammaroon .role-badge.profesional {
+    background: #a02840;
+    color: #FFF8E7;
+}
+body.tema-creammaroon .logout-link {
+    color: #800020;
+    border-top-color: #e8d5c4;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 900px) {
+    .nav {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    .hamburger-btn {
+        font-size: 1.2rem;
+    }
+    .brand {
+        font-size: 1rem;
+    }
+    .sidebar {
+        width: 260px;
+        left: -260px;
+    }
+}
